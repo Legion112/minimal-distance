@@ -32,8 +32,9 @@ function isFeasible(int $mid, array $sittingPlaces, int $n, int $k):bool
 
             // Return if all elements
             // are placed successfully
-            if ($elements == $k)
+            if ($elements === $k) {
                 return true;
+            }
         }
     }
     return false;
@@ -49,7 +50,7 @@ function largestMinDist(array $sittingPlaces, int $numberOfSits, int $numberOfSt
     sort($sittingPlaces);
 
     // Initialize result.
-    $res = -1;
+    $result = -1;
 
     // Consider the maximum
     // possible distance
@@ -68,29 +69,29 @@ function largestMinDist(array $sittingPlaces, int $numberOfSits, int $numberOfSt
     // Do binary search for
     // largest minimum distance
     while ($left < $right) {
-        $mid = (int) (($left + $right) / 2);
+        $middle = (int) (($left + $right) / 2);
 
         // If it is possible to place
         // k elements with minimum
-        // distance mid, search for
+        // distance middle, search for
         // higher distance.
-        if (isFeasible($mid, $sittingPlaces, $numberOfSits, $numberOfStudents)) {
+        if (isFeasible($middle, $sittingPlaces, $numberOfSits, $numberOfStudents)) {
             // Change value of variable
-            // max to mid if all elements
+            // max to middle if all elements
             // can be successfully placed
-            $res = max($res, $mid);
-            $left = $mid + 1;
+            $result = max($result, $middle);
+            $left = $middle + 1;
 
 
             // If not possible to place
             // k elements, search for
             // lower distance
         } else {
-            $right = $mid;
+            $right = $middle;
         }
     }
 
-    return $res;
+    return $result;
 }
 
 // Driver Code
