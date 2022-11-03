@@ -56,6 +56,9 @@ function largestMinDist(array $sittingPlaces, int $numberOfSits, int $numberOfSt
     // possible distance
     $left = 1;
     $right = $sittingPlaces[$numberOfSits - 1];
+    if ($numberOfSits === 2) {
+        return $sittingPlaces[1] - $sittingPlaces[0];
+    }
 
     // left is initialized with 1 and not with arr[0]
     // because, minimum distance between each element
