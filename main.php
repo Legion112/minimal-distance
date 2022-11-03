@@ -8,11 +8,11 @@ declare(strict_types=1);
 // to arrange k elements of
 // arr[0..n-1] with minimum
 // distance given as mid.
-function isFeasible($mid, $arr, $n, $k)
+function isFeasible(int $mid, array $sittingPlaces, int $n, int $k):bool
 {
     // Place first element
     // at arr[0] position
-    $pos = $arr[0];
+    $pos = $sittingPlaces[0];
 
     // Initialize count of
     // elements placed.
@@ -21,13 +21,13 @@ function isFeasible($mid, $arr, $n, $k)
     // Try placing k elements
     // with minimum distance mid.
     for ($i = 1; $i < $n; $i++) {
-        if ($arr[$i] - $pos >= $mid) {
+        if ($sittingPlaces[$i] - $pos >= $mid) {
             // Place next element if
             // its distance from the
             // previously placed
             // element is greater
             // than current mid
-            $pos = $arr[$i];
+            $pos = $sittingPlaces[$i];
             $elements++;
 
             // Return if all elements
@@ -36,7 +36,7 @@ function isFeasible($mid, $arr, $n, $k)
                 return true;
         }
     }
-    return 0;
+    return false;
 }
 
 // Returns largest minimum
