@@ -96,7 +96,6 @@ function largestMinDist(array $sittingPlaces, int $numberOfSits, int $numberOfSt
 // Driver Code
 [$numberOfSits, $numberOfStudents ] = array_map('intval', explode(' ', trim(fgets(STDIN))));
 $sittingPlaces = array_map('intval', explode(' ', trim(fgets(STDIN))));
-$numberOfSits = count($sittingPlaces);
 
 echo largestMinDist($sittingPlaces, $numberOfSits, $numberOfStudents);
 
